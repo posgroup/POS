@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POS</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.css" rel="stylesheet">
+    <link href="css/font-awesome.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="#" class="navbar-brand">Company Logo</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right navbar-user">
+          <li>
+            <div class="btn-group">
+              <button type="button" class="btn btn-lg btn-danger btn-top-size dropdown-toggle" data-toggle="dropdown">
+                Invoices <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" role="menu">
+                <li class="btn btn-danger"><a href="#">Invoice Type 1</a></li>
+                <li class="divider"></li>
+                <li class="btn btn-danger"><a href="#">Invoice Type 2</a></li>
+                <li class="divider"></li>
+                <li class="btn btn-danger"><a href="#">Invoice Type 3</a></li>
+                <li class="divider"></li>
+                <li class="btn btn-danger"><a href="#">Invoice Type 4</a></li>
+              </ul>
+            </div>
+            <div class="btn-group">
+              <button type="button" class="btn btn-lg btn-danger btn-top-size dropdown-toggle" data-toggle="dropdown">
+                Look-Up <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" role="menu">
+                <li class="btn btn-danger"><a href="#">Look-Up Type 1</a></li>
+                <li class="divider"></li>
+                <li class="btn btn-danger"><a href="#">Look-Up Type 2</a></li>
+                <li class="divider"></li>
+                <li class="btn btn-danger"><a href="#">Look-Up Type 3</a></li>
+                <li class="divider"></li>
+                <li class="btn btn-danger"><a href="#">Look-Up Type 4</a></li>
+              </ul>
+            </div>
+            <div class="btn-group">
+              <button type="button" class="btn btn-lg btn-danger btn-top-size dropdown-toggle" data-toggle="dropdown">
+                Item Action <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" role="menu">
+                <li class="btn btn-danger"><a href="#">Item Action Type 1</a></li>
+                <li class="divider"></li>
+                <li class="btn btn-danger"><a href="#">Item Action Type 2</a></li>
+                <li class="divider"></li>
+                <li class="btn btn-danger"><a href="#">Item Action Type 3</a></li>
+                <li class="divider"></li>
+                <li class="btn btn-danger"><a href="#">Item Action Type 4</a></li>
+              </ul>
+            </div>
+            <div class="btn-group">
+              <button type="button" class="btn btn-lg btn-danger btn-top-size dropdown-toggle" data-toggle="dropdown">
+                Bill Action <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" role="menu">
+                <li class="btn btn-danger"><a href="#">Bill Action Type 1</a></li>
+                <li class="divider"></li>
+                <li class="btn btn-danger"><a href="#">Bill Action Type 2</a></li>
+                <li class="divider"></li>
+                <li class="btn btn-danger"><a href="#">Bill Action Type 3</a></li>
+                <li class="divider"></li>
+                <li class="btn btn-danger"><a href="#">Bill Action Type 4</a></li>
+              </ul>
+            </div>
+            <div class="btn-group">
+              <button type="button" class="btn btn-lg btn-danger btn-top-size dropdown-toggle" data-toggle="dropdown">
+                Cashier <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" role="menu">
+                <li class="btn btn-danger"><a href="#">Cashier Type 1</a></li>
+                <li class="divider"></li>
+                <li class="btn btn-danger"><a href="#">Cashier Type 2</a></li>
+                <li class="divider"></li>
+                <li class="btn btn-danger"><a href="#">Cashier Type 3</a></li>
+                <li class="divider"></li>
+                <li class="btn btn-danger"><a href="#">Cashier Type 4</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="dropdown user-dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
+              <li><a href="#"><i class="fa fa-gear"></i> Settings</a></li>
+              <li class="divider"></li>
+              <li><a href="#"><i class="fa fa-power-off"></i> Log Out</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div id="wrapper">
+
+    <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <span class="panel-title">Registered User</span>
+          </div>
+          <div class="panel-body">
+            <form method="post" action="" class="form-vertical">
+              <div class="row">
+                <div class="col-lg-6 col-md-7 col-sm-8">
+                  <div class="form-group">
+                    <label for="emailId">Email Address</label>
+                      <input type="email" name="userName" id="emailId" value="" class="form-control" autofocus="">
+                  </div>
+                  <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" class="form-control"/>
+                  </div>
+                  <button type="submit" class="btn btn-danger">Login</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <span class="panel-title">Forgot Your Password</span>
+          </div>
+          <div class="panel-body">
+            <form method="post" action="#" class="form-vertical">
+              <div class="row">
+                <div class="col-lg-6 col-md-7 col-sm-8">
+                  <div class="form-group">
+                    <label for="forgot-password-username">Email Address</label>
+                    <input type="email" name="userName" class="form-control" id="forgot-password-username" data-label="Email Address" value="">
+                  </div>
+                  <button type="submit" name="EMAIL_PASSWORD" value="Y" class="btn btn-danger">Email Password</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div><!-- wrapper -->
+    
+    <!-- Core Scripts - Include with every page -->
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/table-fixed-header.js"></script>
+    <script src="js/jquery.fixedheadertable-3.0.4.js"></script>
+    <script src="js/custom_js.js"></script>
+  </body>
+    
+</html>
