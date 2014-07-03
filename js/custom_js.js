@@ -14,6 +14,7 @@ jQuery(function() {
     jQuery(this).css('min-height', max_height);
     return this;
   };
+  jQuery('.date').datepicker();
   jQuery('body').find('.info-tiles').each(function() {
       jQuery(this).children('li').equalHeights();
   });
