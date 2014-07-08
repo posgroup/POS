@@ -1081,13 +1081,13 @@ button.btn.btn-lg.btn-fix-size-2x {
   width: 91%;
 }
 button.btn.btn-lg.btn-fix-size {
-  width: 45%;
+  width: 49%;
   margin-bottom: 5px;
 }
 button.btn.btn-top-size {
-  width: 170px!important;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  width: 160px!important;
+  margin-top: 2%;
+  margin-bottom: 2%;
 
 }
 @media (min-width:768px) and (max-width:991px) {
@@ -1124,4 +1124,17 @@ button.btn.btn-top-size {
 }
 .item-table {
   background-color: #fff!important;
+}
+.custom-dropdown a {
+  color:#ffffff!important;
+}
+.custom-dropdown li a:hover,
+.custom-dropdown li a:focus {
+  color: #ffffff;
+  background-color: #d9534f!important;
+}
+input:focus{
+  outline: none;
+  box-shadow: 0px 0px 5px #d43f3a;
+  border-color: #d43f3a!important;
 }
