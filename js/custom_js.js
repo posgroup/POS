@@ -92,10 +92,18 @@ jQuery('body').on('change click', '[data-toggle-hide]', function(e) {
         });
     }
 });
-jQuery('body').on('click', '.delete-items', function(e) {
-  jQuery('input:checkbox:checked').each( function() {
-      jQuery(this).closest('tr').remove();
-  });
+jQuery('body').on('change click', '[data-toggle-attribute]', function(e) {
+  var attributes = jQuery(this).data('toggle-attribute').split(' '),
+      target = jQuery(jQuery(this).data('toggle-attribute-target')),
+      value = jQuery(this).data('toggle-attribute-value');
+  if (jQuery(this).is(':checkbox')) {
+  toggleAttributes(target, attributes, value, jQuery(this).is(':checked'));
+  } else {
+  toggleAttributes(target, attributes, value, (target.attr(attributes[0]) === undefined));
+  }
+});
+jQuery('body').on('click', '.delete-item', function(e) {
+    jQuery(this).closest('tr').remove();
 });
 jQuery(jQuery('body')).find('.table-fixed').each(function() {
     var height = jQuery(this).outerHeight(),
@@ -132,6 +140,21 @@ function scrollOffset(elt) {
           left: valueL,
           top: valueT
       };
+  }
+}
+function toggleAttributes(target, attributes, value, toggle) {
+  if (toggle) {
+      for(var i=0; i<attributes.length; i++) {
+          if(value !== undefined) {
+              target.attr(attributes[i], value);
+          } else {
+              target.attr(attributes[i], attributes[i]);
+          }
+      }
+  } else {
+      for(var i=0; i<attributes.length; i++) {
+          target.removeAttr(attributes[i]);
+      }
   }
 }
 function toggleDisplay(target, state, effect) {
