@@ -1141,3 +1141,11 @@ input:focus {
 .col-fixed-width {
   width:70px!important;
 }
+input {
+  box-shadow: 0px 0px 5px #d43f3a;
+  border-color: #d43f3a!important;
+}
+li.btn.btn-danger.btn-block {
+  margin-top: 1px;
+  margin-bottom: 1px;
+}
