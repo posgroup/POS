@@ -21,56 +21,63 @@
       </div>
     </nav>
     <div id="wrapper">
+    <div class="container-fluid">
 
-    <div class="container">
-    <div class="row">
-      <div class="col-lg-6 col-md-6 col-sm-6">
+      <form class="form-signin" role="form">
         <div class="panel panel-default">
-          <div class="panel-heading">
-            <span class="panel-title">Registered User</span>
+          <div class="panel-heading text-center">
+            <span class="panel-title form-signin-heading">Please sign in</span>
           </div>
-          <div class="panel-body">
+          <div class="panel-body bg-danger">
+            <input type="text" class="form-control" placeholder="User Name" autofocus="">
+            <input type="password" class="form-control" placeholder="Password">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" value="remember-me"> Remember me
+              </label>
+            </div>
+            <button class="btn btn-lg btn-danger btn-block" type="submit">Sign in</button>
+            <button class="btn btn-lg btn-danger btn-block" type="button" data-toggle="modal" data-target=".reset-password">Reset Password</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="modal fade reset-password" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header well well-sm text-center">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h2 class="modal-title" id="myModalLabel">Reset Password</h2>
+          </div>
+          <div class="modal-body">
             <form method="post" action="" class="form-vertical">
               <div class="row">
                 <div class="col-lg-6 col-md-7 col-sm-8">
                   <div class="form-group">
-                    <label for="emailId">Email Address</label>
-                      <input type="email" name="userName" id="emailId" value="" class="form-control" autofocus="">
+                    <label for="emailId">User Name</label>
+                      <input type="userName" name="userName" id="user" value="Jhon Smith" class="form-control" disabled>
                   </div>
                   <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" name="password" id="password" class="form-control"/>
+                    <label for="currentPassword">Current Password</label>
+                    <input type="password" name="currentPassword" id="currentPassword" class="form-control" autofocus=""/>
                   </div>
-                  <button type="submit" class="btn btn-danger">Login</button>
-                  <a href="#" >Reset Password</a>
+                  <div class="form-group">
+                    <label for="newPassword">New Password</label>
+                    <input type="password" name="newPassword" id="newPassword" class="form-control"/>
+                  </div>
+                  <div class="form-group">
+                    <label for="confirmNewPassword">Confirm New Password</label>
+                    <input type="password" name="confirmNewPassword" id="confirmNewPassword" class="form-control"/>
+                  </div>
+                  <button type="submit" class="btn btn-danger">Reset</button>
                 </div>
               </div>
             </form>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-6 col-md-6 col-sm-6">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <span class="panel-title">Forgot Your Password</span>
-          </div>
-          <div class="panel-body">
-            <form method="post" action="#" class="form-vertical">
-              <div class="row">
-                <div class="col-lg-6 col-md-7 col-sm-8">
-                  <div class="form-group">
-                    <label for="forgot-password-username">Email Address</label>
-                    <input type="email" name="userName" class="form-control" id="forgot-password-username" data-label="Email Address" value="">
-                  </div>
-                  <button type="submit" name="EMAIL_PASSWORD" value="Y" class="btn btn-danger">Email Password</button>
-                </div>
-              </div>
-            </form>
-          </div>
+            </div>
         </div>
       </div>
     </div>
-  </div>
+
   </div><!-- wrapper -->
     
     <!-- Core Scripts - Include with every page -->
