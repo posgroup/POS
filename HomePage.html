@@ -8,11 +8,10 @@
     <link href="css/datepicker.css" rel="stylesheet">
     <link href="css/font-awesome.css" rel="stylesheet">
     <link href="css/custom.css" rel="stylesheet">
-
   </head>
 
   <body>
-  
+    <div id="main-content">
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
       <div class="container-fluid">
         <ul class="nav navbar-nav navbar-user col-lg-12 col-md-12 col-sm-12">
@@ -259,7 +258,7 @@
     
       <div class="container-fluid">
         <div class="row">
-          <div class="col-sm-12 col-lg-6 col-md-6">
+          <div class="col-sm-12 col-lg-5 col-md-5">
             <div class="panel panel-default panel-fixed-height">
               <div class="panel-heading">
                 <span class="panel-title">
@@ -268,7 +267,7 @@
               </div>
               <div class="panel-body bg-danger">
                 <ul class="thumbnail invoice-tiles list-unstyled clearfix">
-                  <li class="thumbnail col-sm-12 col-lg-6 col-md-6 bg-danger">
+                  <li class="thumbnail col-sm-12 col-lg-7 col-md-7 bg-danger">
                     <dl class="dl-horizontal dl-small">
                       <dt>Invoice #</dt>
                       <dd>POSMMMMMMMMMMMMMMMMM</dd>
@@ -282,17 +281,7 @@
                       <dd>06-12-2014 01:29 AM</dd>
                     </dl>
                   </li>
-                  <li class="thumbnail col-sm-12 col-lg-6 col-md-6 bg-danger">
-                    <dl class="dl-horizontal dl-small">
-                      <dt>Shift #</dt>
-                      <dd>SH101</dd>
-                      <dt>Customer Name</dt>
-                      <dd>
-                        HONARABLE Mike Faning AND YASHWANT DHAKD FROM INDORE INDIA
-                      </dd>
-                    </dl>
-                  </li>
-                  <li class="thumbnail col-sm-12 col-lg-6 col-md-6 bg-danger">
+                  <li class="thumbnail col-sm-12 col-lg-5 col-md-5 bg-danger">
                     <dl class="dl-horizontal dl-small">
                       <dt>Sub Total</dt>
                       <dd>$52.49</dd>
@@ -302,7 +291,17 @@
                       <dd>$2.23</dd>
                     </dl>
                   </li>
-                  <li class="thumbnail col-sm-12 col-lg-6 col-md-6 bg-danger">
+                  <li class="thumbnail col-sm-12 col-lg-7 col-md-7 bg-danger">
+                    <dl class="dl-horizontal dl-small">
+                      <dt>Shift #</dt>
+                      <dd>SH101</dd>
+                      <dt>Customer Name</dt>
+                      <dd>
+                        HONARABLE Mike Faning AND YASHWANT DHAKD FROM INDORE INDIA
+                      </dd>
+                    </dl>
+                  </li>
+                  <li class="thumbnail col-sm-12 col-lg-5 col-md-5 bg-danger">
                     <dl class="dl-horizontal dl-small">
                       <dt>Total</dt>
                       <dd>$54.72</dd>
@@ -317,9 +316,27 @@
                 </ul>
               </div>
             </div>
+            <div class="panel panel-default bg-danger">
+              <div class="panel-body">
+              <ul class="list-unstyled list-inline">
+                <li>Total Quantity:</li>
+                <li><input type="text" name="quantity" size="4"/></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                <li class="text-right">Sub Total:</li>
+                <li><input type="text" name="subtotal" size="4"/></li>
+              </ul>
+              <button type="button" class="btn btn-lg btn-danger btn-fix-size" disabled="disabled">Cash</button>
+              <button type="button" class="btn btn-lg btn-danger btn-fix-size" disabled="disabled">Credit Note</button>
+              <button type="button" class="btn btn-lg btn-danger btn-fix-size" disabled="disabled">Gift Card</button>
+              <button type="button" class="btn btn-lg btn-danger btn-fix-size" disabled="disabled">Close Bill</button>
+              <button type="button" class="btn btn-lg btn-danger btn-fix-size" disabled="disabled">EDC Card</button>
+              <button type="button" class="btn btn-lg btn-danger btn-fix-size" disabled="disabled">Card</button>
+              <button type="button" class="btn btn-lg btn-danger btn-fix-size">Check</button>
+              <button type="button" class="btn btn-lg btn-danger btn-fix-size">Payment Preview</button>
+              </div>
+            </div>
           </div>
-          <div class="col-sm-12 col-lg-6 col-md-6">
-            <div class="panel panel-default panel-fixed-height">
+          <div class="col-sm-12 col-lg-7 col-md-7">
+            <div class="panel panel-default">
               <div class="panel-heading">
                 <span class="panel-title">Invoice Items</span>
               </div>
@@ -402,7 +419,7 @@
                   </div>
                 </div>
               </div>
-              <table class="table table-bordered table-fixed" data-fixed-height="220">
+              <table class="table table-bordered table-fixed" data-fixed-height="500">
                 <thead>
                   <tr>
                     <th>#</th>
@@ -694,6 +711,142 @@
                       </ul>
                     </td>
                   </tr>
+                  <tr>
+                    <td class="text-lg">9</td>
+                    <td>2134</td>
+                    <td>Plaid Western Shirt-Small-Blue</td>
+                    <td class="col-fixed-width"><span class="item-qty-7">2</span><span class="item-qty-7" style="display:none;"><input name="quantity" value="2" size="4"/></span></td>
+                    <td class="col-fixed-width"><span class="item-qty-7">$26.24</span><span class="item-qty-7" style="display:none;"><input name="price" value="26.24" size="4"/></span></td>
+                    <td>$52.49</td>
+                    <td>
+                      <ul class="list-unstyled list-inline item-qty-7">
+                        <li>
+                          <button type="submit" class="btn-link relative" title="Edit" data-toggle-display=".item-qty-7">
+                            <i class="fa fa-pencil-square-o"></i>
+                          </button>
+                        </li>
+                        <li>
+                          <button type="submit" class="btn-link delete-item" title="Delete"><i class="fa fa-trash-o"></i></button>
+                        </li>
+                      </ul>
+                      <ul class="list-unstyled list-inline item-qty-7" style="display:none;">
+                        <li>
+                          <form method="post" action="#">
+                            <button type="submit" class="btn-link relative" title="Save">
+                              <i class="fa fa-floppy-o"></i>
+                            </button>
+                          </form>
+                        </li>
+                        <li>
+                          <button class="btn-link relative" data-toggle-display=".item-qty-7" title="Cancel Edit">
+                            <i class="fa fa-times"></i>
+                          </button>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="text-lg">10</td>
+                    <td>2134</td>
+                    <td>Plaid Western Shirt-Small-Blue</td>
+                    <td class="col-fixed-width"><span class="item-qty-7">2</span><span class="item-qty-7" style="display:none;"><input name="quantity" value="2" size="4"/></span></td>
+                    <td class="col-fixed-width"><span class="item-qty-7">$26.24</span><span class="item-qty-7" style="display:none;"><input name="price" value="26.24" size="4"/></span></td>
+                    <td>$52.49</td>
+                    <td>
+                      <ul class="list-unstyled list-inline item-qty-7">
+                        <li>
+                          <button type="submit" class="btn-link relative" title="Edit" data-toggle-display=".item-qty-7">
+                            <i class="fa fa-pencil-square-o"></i>
+                          </button>
+                        </li>
+                        <li>
+                          <button type="submit" class="btn-link delete-item" title="Delete"><i class="fa fa-trash-o"></i></button>
+                        </li>
+                      </ul>
+                      <ul class="list-unstyled list-inline item-qty-7" style="display:none;">
+                        <li>
+                          <form method="post" action="#">
+                            <button type="submit" class="btn-link relative" title="Save">
+                              <i class="fa fa-floppy-o"></i>
+                            </button>
+                          </form>
+                        </li>
+                        <li>
+                          <button class="btn-link relative" data-toggle-display=".item-qty-7" title="Cancel Edit">
+                            <i class="fa fa-times"></i>
+                          </button>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="text-lg">11</td>
+                    <td>2134</td>
+                    <td>Plaid Western Shirt-Small-Blue</td>
+                    <td class="col-fixed-width"><span class="item-qty-7">2</span><span class="item-qty-7" style="display:none;"><input name="quantity" value="2" size="4"/></span></td>
+                    <td class="col-fixed-width"><span class="item-qty-7">$26.24</span><span class="item-qty-7" style="display:none;"><input name="price" value="26.24" size="4"/></span></td>
+                    <td>$52.49</td>
+                    <td>
+                      <ul class="list-unstyled list-inline item-qty-7">
+                        <li>
+                          <button type="submit" class="btn-link relative" title="Edit" data-toggle-display=".item-qty-7">
+                            <i class="fa fa-pencil-square-o"></i>
+                          </button>
+                        </li>
+                        <li>
+                          <button type="submit" class="btn-link delete-item" title="Delete"><i class="fa fa-trash-o"></i></button>
+                        </li>
+                      </ul>
+                      <ul class="list-unstyled list-inline item-qty-7" style="display:none;">
+                        <li>
+                          <form method="post" action="#">
+                            <button type="submit" class="btn-link relative" title="Save">
+                              <i class="fa fa-floppy-o"></i>
+                            </button>
+                          </form>
+                        </li>
+                        <li>
+                          <button class="btn-link relative" data-toggle-display=".item-qty-7" title="Cancel Edit">
+                            <i class="fa fa-times"></i>
+                          </button>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="text-lg">12</td>
+                    <td>2134</td>
+                    <td>Plaid Western Shirt-Small-Blue</td>
+                    <td class="col-fixed-width"><span class="item-qty-7">2</span><span class="item-qty-7" style="display:none;"><input name="quantity" value="2" size="4"/></span></td>
+                    <td class="col-fixed-width"><span class="item-qty-7">$26.24</span><span class="item-qty-7" style="display:none;"><input name="price" value="26.24" size="4"/></span></td>
+                    <td>$52.49</td>
+                    <td>
+                      <ul class="list-unstyled list-inline item-qty-7">
+                        <li>
+                          <button type="submit" class="btn-link relative" title="Edit" data-toggle-display=".item-qty-7">
+                            <i class="fa fa-pencil-square-o"></i>
+                          </button>
+                        </li>
+                        <li>
+                          <button type="submit" class="btn-link delete-item" title="Delete"><i class="fa fa-trash-o"></i></button>
+                        </li>
+                      </ul>
+                      <ul class="list-unstyled list-inline item-qty-7" style="display:none;">
+                        <li>
+                          <form method="post" action="#">
+                            <button type="submit" class="btn-link relative" title="Save">
+                              <i class="fa fa-floppy-o"></i>
+                            </button>
+                          </form>
+                        </li>
+                        <li>
+                          <button class="btn-link relative" data-toggle-display=".item-qty-7" title="Cancel Edit">
+                            <i class="fa fa-times"></i>
+                          </button>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
                 </tbody>
               </table>
             </div>
@@ -701,39 +854,23 @@
         </div>
         
         <div class="row">
-          <div class="col-sm-12 col-lg-4 col-md-4">
-            <div class="panel panel-default bg-danger panel-fixed-height-sm">
+          <div class="col-lg-6 col-md-6 col-sm-6">
+            <div class="panel panel-default bg-danger">
               <div class="panel-heading">
                 <span class="panel-title">Promotion Information</span>
               </div>
               <div class="panel-body bg-danger">
                 Promotion detail goes here.
               </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-6">
+            <div class="panel panel-default bg-danger">
               <div class="panel-heading">
                 <span class="panel-title">Sales Information</span>
               </div>
               <div class="panel-body bg-danger">
                 Sales detail goes here.
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-12 col-lg-8 col-md-8">
-            <div class="panel panel-default panel-fixed-height-sm bg-danger">
-              <div class="panel-body">
-              <ul class="list-unstyled list-inline">
-                <li>Total Quantity:</li>
-                <li><input type="text" name="quantity" size="4"/></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-                <li class="text-right">Sub Total:</li>
-                <li><input type="text" name="subtotal" size="4"/></li>
-                </ul>
-              <button type="button" class="btn btn-lg btn-danger btn-fix-size">Cash</button>
-              <button type="button" class="btn btn-lg btn-danger btn-fix-size">Credit Note</button>
-              <button type="button" class="btn btn-lg btn-danger btn-fix-size">Gift Card</button>
-              <button type="button" class="btn btn-lg btn-danger btn-fix-size">Close Bill</button>
-              <button type="button" class="btn btn-lg btn-danger btn-fix-size">EDC Card</button>
-              <button type="button" class="btn btn-lg btn-danger btn-fix-size">Card</button>
-              <button type="button" class="btn btn-lg btn-danger btn-fix-size">Check</button>
-              <button type="button" class="btn btn-lg btn-danger btn-fix-size">Payment Preview</button>
               </div>
             </div>
           </div>
@@ -748,6 +885,7 @@
     <script type="text/javascript" src="js/jquery.fixedheadertable-3.0.4.js"></script>
     <script type="text/javascript" src="js/bootstrap-datepicker.js"></script>
     <script type="text/javascript" src="js/custom_js.js"></script>
+  
+  </div>
   </body>
-    
 </html>
