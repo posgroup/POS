@@ -53,6 +53,7 @@
                 <li class="btn btn-danger btn-block"><a href="#" data-toggle="modal" title="Return Item" data-target="#return-item">Return Item</a></li>
                 <li class="btn btn-danger btn-block"><a href="#" data-toggle="modal" title="Return Item" data-target="#advance-invoice">Advance Invoice</a></li>
                 <li class="btn btn-danger btn-block"><a href="#" data-toggle="modal" title="Return Item" data-target="#sales-against-adv-inv">Sales Against Advance Invoice</a></li>
+                <li class="btn btn-danger btn-block"><a href="#" data-toggle="modal" title="Delivery LookUp" data-target="#delivery-lookUp">Delivery LookUp</a></li>
               </ul>
               
               <div class="modal fade" id="day-begin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -223,11 +224,152 @@
                 Bill Action <span class="caret"></span>
               </button>
               <ul class="dropdown-menu custom-dropdown" role="menu">
-                <li class="btn btn-danger btn-block"><a href="#">Bill Action Type 1</a></li>
-                <li class="btn btn-danger btn-block"><a href="#">Bill Action Type 2</a></li>
-                <li class="btn btn-danger btn-block"><a href="#">Bill Action Type 3</a></li>
-                <li class="btn btn-danger btn-block"><a href="#">Bill Action Type 4</a></li>
+                <li class="btn btn-danger btn-block"><a href="#" data-toggle="modal" title="Bill Look Up" data-target="#bill-lookup">Bill Look Up</a></li>
+                <li class="btn btn-danger btn-block"><a href="#" data-toggle="modal" title="Customer Look Up" data-target="#customer-lookup">Customer Look Up</a></li>
               </ul>
+              <div class="modal fade" id="customer-lookup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                  <form class="form-horizontal" role="form" method="post" action="">
+                    <div class="modal-content">
+                      <div class="modal-header well well-sm text-center">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&#x2715;</button>
+                        <h2 class="modal-title" id="myModalLabel">Customer Details</h2>
+                      </div>
+                      <div class="modal-body">
+                        <div class="form-group row">
+                          <div class="col-sm-4 col-md-4 col-lg-4">
+                            <label for="fname" class="control-label">fname</label>
+                              <input name="fname" id="fname" class="form-control" type="text"/>
+                          </div>
+                          <div class="col-sm-4 col-md-4 col-lg-4">
+                            <label for="lname" class="control-label">lname</label>
+                            <input name="lname" id="lname" class="form-control" type="text"/>
+                          </div>
+                          <div class="col-sm-4 col-md-4 col-lg-4">
+                            <label for="pmobile" class="control-label">pmobile</label>
+                              <input name="pmobile" id="pmobile" class="form-control" type="text"/>
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <div class="col-sm-4 col-md-4 col-lg-4">
+                            <label for="pemail" class="control-label">pemail</label>
+                              <input name="pemail" id="pemail" class="form-control" type="text"/>
+                          </div>
+                          <div class="col-sm-4 col-md-4 col-lg-4">
+                            <label for="city" class="control-label">city</label>
+                            <input name="city" id="city" class="form-control" type="text"/>
+                          </div>
+                          <div class="col-sm-4 col-md-4 col-lg-4">
+                            <label for="sal" class="control-label">sal</label>
+                              <input name="sal" id="sal" class="form-control" type="text"/>
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <div class="col-sm-4 col-md-4 col-lg-4">
+                            <label for="pan" class="control-label">pan</label>
+                              <input name="pan" id="pan" class="form-control" type="text"/>
+                          </div>
+                          <div class="col-sm-4 col-md-4 col-lg-4">
+                            <label for="uid" class="control-label">uid</label>
+                            <input name="uid" id="uid" class="form-control" type="text"/>
+                          </div>
+                          <div class="col-sm-4 col-md-4 col-lg-4">
+                            <label for="email" class="control-label">email</label>
+                              <input name="email" id="email" class="form-control" type="text"/>
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <div class="col-sm-4 col-md-4 col-lg-4">
+                            <label for="landlineno" class="control-label">landlineno</label>
+                              <input name="landlineno" id="landlineno" class="form-control" type="text"/>
+                          </div>
+                          <div class="col-sm-4 col-md-4 col-lg-4">
+                            <label for="company" class="control-label">company</label>
+                            <input name="company" id="company" class="form-control" type="text"/>
+                          </div>
+                          <div class="col-sm-4 col-md-4 col-lg-4">
+                            <label for="companyflg" class="control-label">companyflg</label>
+                              <input name="companyflg" id="companyflg" class="form-control" type="text"/>
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <div class="col-sm-4 col-md-4 col-lg-4">
+                            <label for="gender" class="control-label">gender</label>
+                            <select class="form-control" data-label="Gender" name="gender" id="gender" tabindex="8">
+                              <option>Male</option>
+                              <option>Female</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <div class="col-sm-6 col-md-6 col-lg-6">
+                            <button type="submit" class="btn btn-danger">Add</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="modal fade" id="bill-lookup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                  <form class="form-horizontal" role="form" method="post" action="">
+                    <div class="modal-content">
+                      <div class="modal-header well well-sm text-center">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&#x2715;</button>
+                        <h2 class="modal-title" id="myModalLabel">Bill Lookup Details</h2>
+                      </div>
+                      <div class="modal-body">
+                        <div class="form-group row">
+                          <div class="col-sm-6 col-md-6 col-lg-6">
+                            <label for="fromDate" class="control-label">From Date</label>
+                            <div class="input-group date" data-date-format="dd-mm-yyyy" data-date="01-01-2014">
+                              <input name="fromDate" id="fromDate" class="form-control" type="text" readonly="" />
+                              <span class="input-group-addon add-on">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                              </span>
+                            </div>
+                          </div>
+                          <div class="col-sm-6 col-md-6 col-lg-6">
+                            <label for="autoPopulateDate" class="control-label">To Date</label>
+                            <div class="input-group date" data-date-format="dd-mm-yyyy" data-date="01-01-2014">
+                              <input name="toDate" id="toDate" class="form-control" type="text" readonly="" />
+                              <span class="input-group-addon add-on">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <div class="col-sm-6 col-md-6 col-lg-6">
+                            <label for="fromTime">fromTime</label>
+                            <input type="text" name="fromTime" class="form-control" id="fromTime">
+                          </div>
+                          <div class="col-sm-6 col-md-6 col-lg-6">
+                            <label for="toTime">toTime</label>
+                            <input type="text" name="toTime" class="form-control" id="toTime">
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <div class="col-sm-6 col-md-6 col-lg-6">
+                            <label for="invoiceTitle">invoiceTitle</label>
+                            <input type="text" name="invoiceTitle" class="form-control" id="invoiceTitle">
+                          </div>
+                          <div class="col-sm-6 col-md-6 col-lg-6">
+                            <label for="tenderName">tenderName</label>
+                            <input type="text" name="tenderName" class="form-control" id="tenderName">
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <div class="col-sm-6 col-md-6 col-lg-6">
+                            <button type="submit" class="btn btn-danger">Add</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
             </div>
             <div class="btn-group">
               <button type="button" class="btn btn-lg btn-danger dropdown-toggle btn-top-size" data-toggle="dropdown">
@@ -369,7 +511,7 @@
                       <h4 class="modal-title" id="myModalLabel">Add Customer</h4>
                     </div>
                     <div class="modal-body">
-                      <form method="post" action="/csr/control/validatePoNumber" class="requireValidation" novalidate="novalidate">
+                      <form method="post" action="" class="requireValidation" novalidate="novalidate">
                         <div class="form-group row">
                           <div class="col-lg-8 col-md-8 col-sm-8">
                             <label for="partyId">Customer</label>
@@ -439,7 +581,7 @@
                               <input type="text" data-label="Marital Status" name="maritalStatus" class="form-control" id="maritalStatus" tabindex="13">
                             </div>
                           </div>
-                          <div class="from-group row">
+                          <div class="form-group row">
                             <div class="col-lg-3 col-md-3 col-sm-3">
                               <label for="anniversary">Anniversary</label>
                               <input type="text" data-label="Anniversary" name="anniversary" class="form-control" id="anniversary" tabindex="14">
