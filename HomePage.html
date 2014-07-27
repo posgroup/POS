@@ -362,7 +362,7 @@
                 </ul>
               </div>
               <div class="modal fade" id="add-customer" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
+                <div class="modal-dialog modal-lg">
                   <div class="modal-content">
                     <div class="modal-header well well-sm text-center">
                       <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&#x2715;</span><span class="sr-only">Close</span></button>
@@ -374,7 +374,7 @@
                           <div class="col-lg-8 col-md-8 col-sm-8">
                             <label for="partyId">Customer</label>
                             <div class="input-group">
-                              <input type="text" id="partyId" name="partyId" value="" data-label="Customer" tabindex="2" placeholder="Search Customer" autofocus="autofocus" class="autoCompleter form-control">
+                              <input type="text" id="partyId" name="partyId" value="" data-label="Customer" tabindex="1" placeholder="Search Customer" autofocus="autofocus" class="autoCompleter form-control">
                               <a class="input-group-addon" tabindex="3" data-toggle-display="#create-customer" data-toggle-effect="slide" data-toggle-attribute="disabled" data-toggle-attribute-target="#partyId" data-toggle-attribute-value="">
                                 <i class="fa fa-plus"></i>
                               </a>
@@ -383,32 +383,143 @@
                         </div>
                         <div id="create-customer" style="display:none;">
                           <div class="form-group row">
-                            <div class="col-lg-8 col-md-8 col-sm-8">
-                              <label for="firstName">First Name</label>
-                              <input type="text" data-label="First Name" name="firstName" class="form-control" id="firstName" tabindex="4">
+                            <div class="col-lg-3 col-md-3 col-sm-3">
+                              <label for="customerType">customerType</label>
+                              <input type="text" data-label="customerType" name="customerType" class="form-control" id="customerType" tabindex="2">
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3">
+                              <label for="sal">sal</label>
+                              <input type="text" data-label="sal" name="sal" class="form-control" id="sal" tabindex="3">
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3">
+                              <label for="fname">First Name</label>
+                              <input type="text" data-label="First Name" name="fname" class="form-control" id="fname" tabindex="4">
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3">
+                              <label for="lname">Last Name</label>
+                              <input type="text" data-label="Last Name" name="lname" class="form-control" id="lname" tabindex="5">
                             </div>
                           </div>
                           <div class="form-group row">
-                            <div class="col-lg-8 col-md-8 col-sm-8">
-                              <label for="lastName">Last Name</label>
-                              <input type="text" data-label="Last Name" name="lastName" class="form-control" id="lastName" tabindex="5">
+                            <div class="col-lg-3 col-md-3 col-sm-3">
+                              <label for="companyname">Company Name</label>
+                              <input type="text" data-label="Company Name" name="companyname" class="form-control" id="companyname" tabindex="6">
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3">
+                              <label for="companyflg">Company Flg</label>
+                              <input type="text" data-label="Company Flg" name="companyflg" class="form-control" id="companyflg" tabindex="7">
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3">
+                              <label for="gender">Gender</label>
+                              <select class="form-control" data-label="Gender" name="gender" id="gender" tabindex="8">
+                                <option>Male</option>
+                                <option>Female</option>
+                              </select>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3">
+                              <label for="ageBracket">Age</label>
+                              <input type="text" data-label="Age" name="ageBracket" class="form-control" id="ageBracket" tabindex="9">
                             </div>
                           </div>
                           <div class="form-group row">
-                            <div class="col-lg-8 col-md-8 col-sm-8">
-                              <label for="emailAddress">Email</label>
-                              <input type="text" data-label="Email" name="emailAddress" class="form-control" id="emailAddress" tabindex="6">
+                            <div class="col-lg-3 col-md-3 col-sm-3">
+                              <label for="dndFlg">dndFlg</label>
+                              <input type="text" data-label="dndFlg" name="dndFlg" class="form-control" id="dndFlg" tabindex="10">
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3">
+                              <label for="ageBracket">ageBracket</label>
+                              <input type="text" data-label="ageBracket" name="ageBracket" class="form-control" id="ageBracket" tabindex="11">
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3">
+                              <label for="dob">Date Of Birth</label>
+                              <input type="text" data-label="Date Of Birth" name="dob" class="form-control" id="dob" tabindex="12">
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3">
+                              <label for="maritalStatus">Marital Status</label>
+                              <input type="text" data-label="Marital Status" name="maritalStatus" class="form-control" id="maritalStatus" tabindex="13">
+                            </div>
+                          </div>
+                          <div class="from-group row">
+                            <div class="col-lg-3 col-md-3 col-sm-3">
+                              <label for="anniversary">Anniversary</label>
+                              <input type="text" data-label="Anniversary" name="anniversary" class="form-control" id="anniversary" tabindex="14">
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3">
+                              <label for="occupation">Occupation</label>
+                              <input type="text" data-label="Occupation" name="occupation" class="form-control" id="occupation" tabindex="15">
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3">
+                              <label for="kybcFlg">kybcFlg</label>
+                              <input type="text" data-label="kybcFlg" name="kybcFlg" class="form-control" id="kybcFlg" tabindex="16">
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3">
+                              <label for="uid">UID</label>
+                              <input type="text" data-label="UID" name="uid" class="form-control" id="uid" tabindex="17">
                             </div>
                           </div>
                           <div class="form-group row">
-                            <div class="col-lg-8 col-md-8 col-sm-8">
-                              <label for="phoneNumber">Mobile Number</label>
-                              <input type="text" data-label="Phone Number" name="phoneNumber" class="form-control" id="phoneNumber" tabindex="7">
+                            <div class="col-lg-3 col-md-3 col-sm-3">
+                              <label for="pan">PAN</label>
+                              <input type="text" data-label="Age" name="pan" class="form-control" id="pan" tabindex="18">
                             </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3">
+                              <label for="mobileNo">Mobile No</label>
+                              <input type="text" data-label="Mobile No" name="mobileNo" class="form-control" id="mobileNo" tabindex="19">
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3">
+                              <label for="scndrymob">scndrymob</label>
+                              <input type="text" data-label="Age" name="scndrymob" class="form-control" id="scndrymob" tabindex="20">
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3">
+                              <label for="phoneNo">phoneNo</label>
+                              <input type="text" data-label="Age" name="phoneNo" class="form-control" id="phoneNo" tabindex="21">
+                            </div>
+                          </div>
+                          <div class="form-group row">
+                            <div class="col-lg-3 col-md-3 col-sm-3">
+                              <label for="scndryLandline">scndryLandline</label>
+                              <input type="text" data-label="Marital Status" name="scndryLandline" class="form-control" id="scndryLandline" tabindex="22">
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3">
+                              <label for="mailId">mailId</label>
+                              <input type="text" data-label="mailId" name="mailId" class="form-control" id="mailId" tabindex="23">
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3">
+                              <label for="scndryEmail">scndryEmail</label>
+                              <input type="text" data-label="scndryEmail" name="scndryEmail" class="form-control" id="scndryEmail" tabindex="24">
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3">
+                              <label for="addressLine1">addressLine1</label>
+                              <input type="text" data-label="addressLine1" name="addressLine1" class="form-control" id="addressLine1" tabindex="25">
+                            </div>
+                          </div>
+                          <div class="form-group row">
+                            <div class="col-lg-3 col-md-3 col-sm-3">
+                              <label for="addressLine2">addressLine2</label>
+                              <input type="text" data-label="addressLine2" name="addressLine2" class="form-control" id="addressLine2" tabindex="26">
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3">
+                              <label for="city">location</label>
+                              <input type="text" data-label="location" name="location" class="form-control" id="location" tabindex="27">
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3">
+                              <label for="kybcFlg">city</label>
+                              <input type="text" data-label="city" name="city" class="form-control" id="city" tabindex="28">
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3">
+                              <label for="landmark">landmark</label>
+                              <input type="text" data-label="landmark" name="landmark" class="form-control" id="landmark" tabindex="29">
+                            </div>
+                          </div>
+                          <div class="form-group row">
+                            <div class="col-lg-3 col-md-3 col-sm-3">
+                                <label for="pincode">pincode</label>
+                                <input type="text" data-label="pincode" name="pincode" class="form-control" id="pincode" tabindex="30">
+                              </div>
                           </div>
                         </div>
                         <div class="form-group row">
-                          <div class="col-lg-8 col-md-8 col-sm-8">
+                          <div class="col-lg-3 col-md-3 col-sm-3">
                             <button type="submit" class="btn btn-danger relative" tabIndex="8">
                               Add
                             </button>
@@ -431,7 +542,7 @@
                     <th>Actions</th>
                   </tr>
                 </thead>
-                <tbody class="edit-items">
+                <tbody>
                   <tr>
                     <td class="text-lg">1</td>
                     <td>10304</td>
