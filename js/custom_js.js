@@ -113,23 +113,6 @@ jQuery(function() {
           jQuery(this).parent().css({'overflow-y':'auto'});
       }
   });
-  /*
-  jQuery('body').on('click', '[data-toggle="modal"]', function(e) {
-    e.preventDefault();
-    var url = $(this).attr('href');
-    console.log(url);
-    console.log(jQuery(this).data('target'));
-    if (url === null)
-      url = jQuery(this).data('target')
-    console.log(url);
-    if (url.charAt(0) === '#' || url.charAt(0) === '.') {
-      jQuery ("add-customer").modal('open');
-    } else {
-        jQuery.get(url, function(data) {
-            jQuery('<div class="modal hide fade">' + data + '</div>').modal();
-        });
-    }
-  });*/
 });
 function scrollOffset(elt) {
   var valueT = 0,
