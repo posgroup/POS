@@ -79,40 +79,57 @@ jQuery(function() {
             toggleDisplay(jQuery(this), !jQuery(this).is(':visible'), effect);
         });
     }
-});
+  });
 
-jQuery('body').on('change click', '[data-toggle-hide]', function(e) {
-    var effect = jQuery(this).data('toggle-effect');
-    if (jQuery(this).is(':checkbox, :radio:checked')) {
-        toggleDisplay(jQuery(this).data('toggle-hide'), !jQuery(this).is(':checked'), effect);
+  jQuery('body').on('change click', '[data-toggle-hide]', function(e) {
+      var effect = jQuery(this).data('toggle-effect');
+      if (jQuery(this).is(':checkbox, :radio:checked')) {
+          toggleDisplay(jQuery(this).data('toggle-hide'), !jQuery(this).is(':checked'), effect);
+      } else {
+          e.preventDefault();
+          jQuery(jQuery(this).data('toggle-hide')).each(function() {
+              toggleDisplay(jQuery(this), !jQuery(this).is(':visible'), effect);
+          });
+      }
+  });
+  jQuery('body').on('change click', '[data-toggle-attribute]', function(e) {
+    var attributes = jQuery(this).data('toggle-attribute').split(' '),
+        target = jQuery(jQuery(this).data('toggle-attribute-target')),
+        value = jQuery(this).data('toggle-attribute-value');
+    if (jQuery(this).is(':checkbox')) {
+    toggleAttributes(target, attributes, value, jQuery(this).is(':checked'));
     } else {
-        e.preventDefault();
-        jQuery(jQuery(this).data('toggle-hide')).each(function() {
-            toggleDisplay(jQuery(this), !jQuery(this).is(':visible'), effect);
+    toggleAttributes(target, attributes, value, (target.attr(attributes[0]) === undefined));
+    }
+  });
+  jQuery('body').on('click', '.delete-item', function(e) {
+      jQuery(this).closest('tr').remove();
+  });
+  jQuery(jQuery('body')).find('.table-fixed').each(function() {
+      var height = jQuery(this).outerHeight(),
+          fixed_height = jQuery(this).data('fixed-height');
+      if(height > fixed_height) {
+          jQuery(this).fixedHeaderTable({height: fixed_height});
+          jQuery(this).parent().css({'overflow-y':'auto'});
+      }
+  });
+  /*
+  jQuery('body').on('click', '[data-toggle="modal"]', function(e) {
+    e.preventDefault();
+    var url = $(this).attr('href');
+    console.log(url);
+    console.log(jQuery(this).data('target'));
+    if (url === null)
+      url = jQuery(this).data('target')
+    console.log(url);
+    if (url.charAt(0) === '#' || url.charAt(0) === '.') {
+      jQuery ("add-customer").modal('open');
+    } else {
+        jQuery.get(url, function(data) {
+            jQuery('<div class="modal hide fade">' + data + '</div>').modal();
         });
     }
-});
-jQuery('body').on('change click', '[data-toggle-attribute]', function(e) {
-  var attributes = jQuery(this).data('toggle-attribute').split(' '),
-      target = jQuery(jQuery(this).data('toggle-attribute-target')),
-      value = jQuery(this).data('toggle-attribute-value');
-  if (jQuery(this).is(':checkbox')) {
-  toggleAttributes(target, attributes, value, jQuery(this).is(':checked'));
-  } else {
-  toggleAttributes(target, attributes, value, (target.attr(attributes[0]) === undefined));
-  }
-});
-jQuery('body').on('click', '.delete-item', function(e) {
-    jQuery(this).closest('tr').remove();
-});
-jQuery(jQuery('body')).find('.table-fixed').each(function() {
-    var height = jQuery(this).outerHeight(),
-        fixed_height = jQuery(this).data('fixed-height');
-    if(height > fixed_height) {
-        jQuery(this).fixedHeaderTable({height: fixed_height});
-        jQuery(this).parent().css({'overflow-y':'auto'});
-    }
-});
+  });*/
 });
 function scrollOffset(elt) {
   var valueT = 0,
