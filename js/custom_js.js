@@ -4,7 +4,6 @@ jQuery(function() {
     var max_height = 0;
     jQuery(this).each(function() {
         if (jQuery(this).outerHeight() > max_height) {
-            /*This(Adding 0.4) is a hack, we will fix it in better way.*/
             max_height = jQuery(this).outerHeight()+0.4;
         }
     });
@@ -18,7 +17,6 @@ jQuery(function() {
   jQuery('body').find('.info-tiles').each(function() {
       jQuery(this).children('li').equalHeights();
   });
-  /* Use data-tooltip-content attribute for show text contents and data-tooltip-target attribute to show html contents */
   jQuery('body').on('mouseenter', '[data-tooltip-content], [data-tooltip-target]', function() {
       var scroll_offset = scrollOffset(jQuery(this)),
           window_height = jQuery(window).height(),
@@ -34,8 +32,6 @@ jQuery(function() {
           });
       }
 
-      // fail safe code for cases when the tooltip is too close to the boundary of the viewport
-      // change the direction of the tooltip in such cases
       jQuery(this).popover('show');
       if (direction_of_tooltip === 'left-or-right') {
           var half_tooltip_height = jQuery(this).data('bs.popover').$tip.height() / 2;
@@ -113,6 +109,62 @@ jQuery(function() {
           jQuery(this).parent().css({'overflow-y':'auto'});
       }
   });
+  default_modal_options = {
+      replace: true
+  }
+  jQuery('body').on('click', '[data-dialog-href]', function(e) {
+    var href = jQuery(this).data('dialog-href');
+        id = jQuery(this).data('id'),
+        title = jQuery(this).attr('title'),
+        ajax_loader = jQuery('<i/>').addClass('dialog-ajax-loader fa fa-spinner fa-4x fa-spin'),
+        modal_header = jQuery('<div/>').addClass('modal-header well well-sm'),
+        modal_title = jQuery('<h4/>').addClass('modal-title text-center').html(title),
+        modal_dismiss = jQuery('<button/>').addClass('close').attr('data-dismiss', 'modal').html('&times;'),
+        modal_body = jQuery('<div/>').addClass('modal-body'),
+        data_dialog_width = (jQuery(this).data('dialog-width')) ? jQuery(this).data('dialog-width') : "default";;
+
+    window.modal = jQuery('<div/>').addClass('modal '+data_dialog_width).attr('id', id);
+    window.data_dialog_width = data_dialog_width;
+    jQuery(window.modal).append(modal_header);
+    jQuery(modal_header).append(modal_dismiss);
+    jQuery(modal_header).append(modal_title);
+    jQuery(modal_body).insertAfter(modal_header);
+    //jQuery(modal_body).append(ajax_loader);
+
+    e.preventDefault();
+
+    if (href !== undefined) {
+        if (href.charAt(0) === '#' || href.charAt(0) === '.') {
+            jQuery(modal_body).append(jQuery(href).html());
+            if (title === undefined) {
+                modal_title.html(jQuery(href).find('.modal-title:first').text());
+            }
+            modal_body.find('.modal-title:first').hide();
+            jQuery(window.modal).modal(default_modal_options);
+        } else {
+            jQuery.ajax({
+              url: href,
+              dataTypeString: "html",
+              beforeSend: function() {
+                  jQuery(window.modal).modal(default_modal_options);
+              },
+              complete: function(xhr, status) {
+                  jQuery(window.modal).modal('hide');
+                  var response_without_scripts = jQuery(xhr.responseText).not('script'),
+                      response_scripts = jQuery(xhr.responseText).filter('script'),
+                      response_html = jQuery('<div/>').html(response_without_scripts);
+                  if (title === undefined) {
+                      modal_title.html(response_html.find('.modal-title:first').text());
+                  }
+                  jQuery(modal_body).html(response_html.html());
+                  modal_body.find('.modal-title:first').hide();
+                  jQuery(response_scripts).appendTo(window.modal);
+                  jQuery(window.modal).modal(default_modal_options);
+              }
+            });
+        }
+    }
+});
 });
 function scrollOffset(elt) {
   var valueT = 0,

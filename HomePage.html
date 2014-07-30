@@ -7,6 +7,8 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/datepicker.css" rel="stylesheet">
     <link href="css/font-awesome.css" rel="stylesheet">
+    <link href="css/bootstrap-modal-bs3patch.css" rel="stylesheet">
+    <link href="css/bootstrap-modal.css" rel="stylesheet">
     <link href="css/custom.css" rel="stylesheet">
   </head>
 
@@ -48,327 +50,272 @@
                 Item Action <span class="caret"></span>
               </button>
               <ul class="dropdown-menu custom-dropdown" role="menu">
-                <li class="btn btn-danger btn-block"><a href="#" data-toggle="modal" title="Return Item" data-target="#shift-begin">Shift Begin</a></li>
-                <li class="btn btn-danger btn-block"><a href="#" data-toggle="modal" title="Return Item" data-target="#day-begin">Day Begin</a></li>
-                <li class="btn btn-danger btn-block"><a href="#" data-toggle="modal" title="Return Item" data-target="#return-item">Return Item</a></li>
-                <li class="btn btn-danger btn-block"><a href="#" data-toggle="modal" title="Return Item" data-target="#advance-invoice">Advance Invoice</a></li>
-                <li class="btn btn-danger btn-block"><a href="#" data-toggle="modal" title="Return Item" data-target="#sales-against-adv-inv">Sales Against Advance Invoice</a></li>
-                <li class="btn btn-danger btn-block"><a href="#" data-toggle="modal" title="Delivery LookUp" data-target="#delivery-lookUp">Delivery LookUp</a></li>
+                <li class="btn btn-danger btn-block"><a href="#" data-toggle="modal" title="Shift Begin Details" data-dialog-href="#shift-begin">Shift Begin</a></li>
+                <li class="btn btn-danger btn-block"><a href="#" data-toggle="modal" title="Day Begin Details" data-dialog-href="#day-begin">Day Begin</a></li>
+                <li class="btn btn-danger btn-block"><a href="#" data-toggle="modal" title="Original Invoice Details" data-dialog-href="#return-item">Return Item</a></li>
+                <li class="btn btn-danger btn-block"><a href="#" data-toggle="modal" title="Advance Invoice" data-dialog-href="#advance-invoice">Advance Invoice</a></li>
+                <li class="btn btn-danger btn-block"><a href="#" data-toggle="modal" title="Enter Old Invoice No" data-dialog-href="#sales-against-adv-inv">Sales Against Advance Invoice</a></li>
+                <li class="btn btn-danger btn-block"><a href="#" data-toggle="modal" title="Delivery LookUp" data-dialog-href="#delivery-lookUp">Delivery LookUp</a></li>
               </ul>
               
-              <div class="modal fade" id="day-begin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                  <form class="form-horizontal" role="form" method="post" action="">
-                    <div class="modal-content">
-                      <div class="modal-header well well-sm text-center">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&#x2715;</button>
-                        <h2 class="modal-title" id="myModalLabel">Day Begin Details</h2>
-                      </div>
-                      <div class="modal-body">
-                        <div class="form-group">
-                          <label for="autoPopulateDate" class="col-sm-4 control-label">Auto populate date</label>
-                          <div class="col-sm-8">
-                            <div class="input-group date" data-date-format="dd-mm-yyyy" data-date="01-01-2014">
-                              <input id="autoPopulateDate" class="form-control" type="text" readonly="" size="14" />
-                              <span class="input-group-addon add-on">
-                                <span class="glyphicon glyphicon-calendar"></span>
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Shift End</button>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Till End</button>
+              <div id="day-begin" style="display:none">
+                <form class="form-horizontal" role="form" method="post" action="">
+                  <div class="form-group">
+                    <label for="autoPopulateDate" class="col-sm-4 control-label">Auto populate date</label>
+                    <div class="col-sm-8">
+                      <div class="input-group date" data-date-format="dd-mm-yyyy" data-date="01-01-2014">
+                        <input id="autoPopulateDate" class="form-control" type="text" readonly="" size="14" />
+                        <span class="input-group-addon add-on">
+                          <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
                       </div>
                     </div>
-                  </form>
-                </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-sm-8 col-sm-offset-4">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Shift End</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Till End</button>
+                    </div>
+                  </div>
+                </form>
               </div>
               
-              <div class="modal fade" id="shift-begin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                  <form class="form-horizontal" role="form">
-                    <div class="modal-content">
-                      <div class="modal-header well well-sm text-center">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&#x2715;</button>
-                        <h2 class="modal-title" id="myModalLabel">Shift Begin Details</h2>
-                      </div>
-                      <div class="modal-body">
-                        <div class="form-group">
-                          <label for="shiftNo" class="col-sm-4 control-label">Shift No</label>
-                          <div class="col-sm-8">
-                            <input type="text" class="form-control" id="shiftNo"/>
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label for="shiftAmount" class="col-sm-4 control-label">Shift Amount</label>
-                          <div class="col-sm-8">
-                            <input type="text" class="form-control" id="shiftAmount"/>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Ok</button>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-                      </div>
+              <div id="shift-begin" style="display:none">
+                <form class="form-horizontal" role="form">
+                  <div class="form-group">
+                    <label for="shiftNo" class="col-sm-4 control-label">Shift No</label>
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control" id="shiftNo"/>
                     </div>
-                  </form>
+                  </div>
+                  <div class="form-group">
+                    <label for="shiftAmount" class="col-sm-4 control-label">Shift Amount</label>
+                    <div class="col-sm-8">
+                      <input type="text" class="form-control" id="shiftAmount"/>
+                    </div>
+                  </div>
+                <div class="form-group">
+                  <div class="col-sm-8 col-sm-offset-4">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Ok</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                  </div>
                 </div>
-              </div>
+              </form>
+            </div>
               
-              <div class="modal fade" id="return-item" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header well well-sm text-center">
-                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&#x2715;</button>
-                      <h2 class="modal-title" id="myModalLabel">Original Invoice Details</h2>
-                    </div>
-                    <div class="modal-body">
-                      <dl class="dl-horizontal">
-                        <dt>Sys Invoice No</dt>
-                        <dd>SLF07A02123</dd>
-                        <dt>Date</dt>
-                        <dd>26-05-2011</dd>
-                        <dt>Time</dt>
-                        <dd>06:14:57</dd>
-                        <dt>Shift No</dt>
-                        <dd>1</dd>
-                        <dt>Cashier Name</dt>
-                        <dd>250670</dd>
-                      </dl>
-                      <table class="table table-bordered table-fixed" data-fixed-height="290">
-                        <thead>
-                          <tr>
-                            <th>EAN</th>
-                            <th>Item Code</th>
-                            <th>Quantity</th>
-                            <th>Total Amount</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>AC1010</td>
-                            <td>100005</td>
-                            <td class="text-right">1</td>
-                            <td class="text-right">13,994</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-danger" data-dismiss="modal">Colse-F4</button>
+            <div id="return-item" style="display:none">
+              <dl class="dl-horizontal">
+                <dt>Sys Invoice No</dt>
+                <dd>SLF07A02123</dd>
+                <dt>Date</dt>
+                <dd>26-05-2011</dd>
+                <dt>Time</dt>
+                <dd>06:14:57</dd>
+                <dt>Shift No</dt>
+                <dd>1</dd>
+                <dt>Cashier Name</dt>
+                <dd>250670</dd>
+              </dl>
+              <table class="table table-bordered table-fixed" data-fixed-height="290">
+                <thead>
+                  <tr>
+                    <th>EAN</th>
+                    <th>Item Code</th>
+                    <th>Quantity</th>
+                    <th>Total Amount</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>AC1010</td>
+                    <td>100005</td>
+                    <td class="text-right">1</td>
+                    <td class="text-right">13,994</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="control-group">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Colse-F4</button>
+              </div>
+            </div>
+            <div id="advance-invoice" style="display:none">
+              <form class="form-horizontal" role="form">
+                <div class="form-group">
+                  <label for="paymentDate" class="col-sm-4 control-label">Expected Payment Date</label>
+                  <div class="col-sm-8">
+                    <div class="input-group date" data-date-format="dd-mm-yyyy" data-date="01-01-2014">
+                      <input id="paymentDate" class="form-control" type="text" readonly="" size="14" />
+                      <span class="input-group-addon add-on">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                      </span>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="modal fade" id="advance-invoice" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                  <form class="form-horizontal" role="form">
-                  <div class="modal-content">
-                    <div class="modal-body">
-                        <div class="form-group">
-                          <label for="paymentDate" class="col-sm-4 control-label">Expected Payment Date</label>
-                          <div class="col-sm-8">
-                            <div class="input-group date" data-date-format="dd-mm-yyyy" data-date="01-01-2014">
-                              <input id="paymentDate" class="form-control" type="text" readonly="" size="14" />
-                              <span class="input-group-addon add-on">
-                                <span class="glyphicon glyphicon-calendar"></span>
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <div class="col-sm-offset-4 col-sm-8">
-                            <div class="checkbox">
-                              <label>
-                                <input type="checkbox"> Allowed Payment Below Limit
-                              </label>
-                            </div>
-                          </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-default" data-dismiss="modal">Ok</button>
+                <div class="form-group">
+                  <div class="col-sm-offset-4 col-sm-8">
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox"> Allowed Payment Below Limit
+                      </label>
                     </div>
                   </div>
-                  </form>
                 </div>
-              </div>
-              <div class="modal fade" id="sales-against-adv-inv" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                  <form class="form-horizontal" role="form">
-                  <div class="modal-content">
-                    <div class="modal-body">
-                        <div class="form-group">
-                          <label for="invoiceNo" class="col-sm-6 control-label">Enter Old Invoice No</label>
-                          <div class="col-sm-6">
-                            <input type="text" class="form-control" id="invoiceNo"/>
-                          </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-info" data-dismiss="modal">Go</button>
-                      <button type="button" class="btn btn-info" data-dismiss="modal">Scan</button>
-                      <button type="button" class="btn btn-danger" data-dismiss="modal">Clear-F3</button>
-                      <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel-F4</button>
-                    </div>
+                <div class="form-group">
+                  <div class="col-sm-offset-4 col-sm-8">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Ok</button>
                   </div>
-                  </form>
                 </div>
-              </div>
-              
+              </form>
+            </div>
+            <div id="sales-against-adv-inv" style="display:none">
+              <form class="form-horizontal" role="form">
+                <div class="form-group">
+                  <label for="invoiceNo" class="col-sm-6 control-label">Enter Old Invoice No</label>
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control" id="invoiceNo"/>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-offset-4 col-sm-8">
+                    <button type="button" class="btn btn-info" data-dismiss="modal">Go</button>
+                    <button type="button" class="btn btn-info" data-dismiss="modal">Scan</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Clear-F3</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel-F4</button>
+                  </div>
+                </div>
+              </form>
+            </div>
             </div>
             <div class="btn-group">
               <button type="button" class="btn btn-lg btn-danger dropdown-toggle btn-top-size" data-toggle="dropdown">
                 Bill Action <span class="caret"></span>
               </button>
               <ul class="dropdown-menu custom-dropdown" role="menu">
-                <li class="btn btn-danger btn-block"><a href="#" data-toggle="modal" title="Bill Look Up" data-target="#bill-lookup">Bill Look Up</a></li>
-                <li class="btn btn-danger btn-block"><a href="#" data-toggle="modal" title="Customer Look Up" data-target="#customer-lookup">Customer Look Up</a></li>
+                <li class="btn btn-danger btn-block"><a href="#" data-toggle="modal" title="Bill Lookup Details" data-dialog-href="#bill-lookup">Bill Look Up</a></li>
+                <li class="btn btn-danger btn-block"><a href="#" data-toggle="modal" title="Customer Details" data-dialog-href="#customer-lookup">Customer Look Up</a></li>
               </ul>
-              <div class="modal fade" id="customer-lookup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                  <form class="form-horizontal" role="form" method="post" action="">
-                    <div class="modal-content">
-                      <div class="modal-header well well-sm text-center">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&#x2715;</button>
-                        <h2 class="modal-title" id="myModalLabel">Customer Details</h2>
-                      </div>
-                      <div class="modal-body">
-                        <div class="form-group row">
-                          <div class="col-sm-4 col-md-4 col-lg-4">
-                            <label for="fname" class="control-label">fname</label>
-                              <input name="fname" id="fname" class="form-control" type="text"/>
-                          </div>
-                          <div class="col-sm-4 col-md-4 col-lg-4">
-                            <label for="lname" class="control-label">lname</label>
-                            <input name="lname" id="lname" class="form-control" type="text"/>
-                          </div>
-                          <div class="col-sm-4 col-md-4 col-lg-4">
-                            <label for="pmobile" class="control-label">pmobile</label>
-                              <input name="pmobile" id="pmobile" class="form-control" type="text"/>
-                          </div>
-                        </div>
-                        <div class="form-group row">
-                          <div class="col-sm-4 col-md-4 col-lg-4">
-                            <label for="pemail" class="control-label">pemail</label>
-                              <input name="pemail" id="pemail" class="form-control" type="text"/>
-                          </div>
-                          <div class="col-sm-4 col-md-4 col-lg-4">
-                            <label for="city" class="control-label">city</label>
-                            <input name="city" id="city" class="form-control" type="text"/>
-                          </div>
-                          <div class="col-sm-4 col-md-4 col-lg-4">
-                            <label for="sal" class="control-label">sal</label>
-                              <input name="sal" id="sal" class="form-control" type="text"/>
-                          </div>
-                        </div>
-                        <div class="form-group row">
-                          <div class="col-sm-4 col-md-4 col-lg-4">
-                            <label for="pan" class="control-label">pan</label>
-                              <input name="pan" id="pan" class="form-control" type="text"/>
-                          </div>
-                          <div class="col-sm-4 col-md-4 col-lg-4">
-                            <label for="uid" class="control-label">uid</label>
-                            <input name="uid" id="uid" class="form-control" type="text"/>
-                          </div>
-                          <div class="col-sm-4 col-md-4 col-lg-4">
-                            <label for="email" class="control-label">email</label>
-                              <input name="email" id="email" class="form-control" type="text"/>
-                          </div>
-                        </div>
-                        <div class="form-group row">
-                          <div class="col-sm-4 col-md-4 col-lg-4">
-                            <label for="landlineno" class="control-label">landlineno</label>
-                              <input name="landlineno" id="landlineno" class="form-control" type="text"/>
-                          </div>
-                          <div class="col-sm-4 col-md-4 col-lg-4">
-                            <label for="company" class="control-label">company</label>
-                            <input name="company" id="company" class="form-control" type="text"/>
-                          </div>
-                          <div class="col-sm-4 col-md-4 col-lg-4">
-                            <label for="companyflg" class="control-label">companyflg</label>
-                              <input name="companyflg" id="companyflg" class="form-control" type="text"/>
-                          </div>
-                        </div>
-                        <div class="form-group row">
-                          <div class="col-sm-4 col-md-4 col-lg-4">
-                            <label for="gender" class="control-label">gender</label>
-                            <select class="form-control" data-label="Gender" name="gender" id="gender" tabindex="8">
-                              <option>Male</option>
-                              <option>Female</option>
-                            </select>
-                          </div>
-                        </div>
-                        <div class="form-group row">
-                          <div class="col-sm-6 col-md-6 col-lg-6">
-                            <button type="submit" class="btn btn-danger">Add</button>
-                          </div>
-                        </div>
-                      </div>
+              <div id="customer-lookup" style="display:none;">
+                <form class="form-horizontal" role="form" method="post" action="">
+                  <div class="form-group row">
+                    <div class="col-sm-4 col-md-4 col-lg-4">
+                      <label for="fname" class="control-label">fname</label>
+                        <input name="fname" id="fname" class="form-control" type="text"/>
                     </div>
-                  </form>
-                </div>
+                    <div class="col-sm-4 col-md-4 col-lg-4">
+                      <label for="lname" class="control-label">lname</label>
+                      <input name="lname" id="lname" class="form-control" type="text"/>
+                    </div>
+                    <div class="col-sm-4 col-md-4 col-lg-4">
+                      <label for="pmobile" class="control-label">pmobile</label>
+                        <input name="pmobile" id="pmobile" class="form-control" type="text"/>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-sm-4 col-md-4 col-lg-4">
+                      <label for="pemail" class="control-label">pemail</label>
+                        <input name="pemail" id="pemail" class="form-control" type="text"/>
+                    </div>
+                    <div class="col-sm-4 col-md-4 col-lg-4">
+                      <label for="city" class="control-label">city</label>
+                      <input name="city" id="city" class="form-control" type="text"/>
+                    </div>
+                    <div class="col-sm-4 col-md-4 col-lg-4">
+                      <label for="sal" class="control-label">sal</label>
+                        <input name="sal" id="sal" class="form-control" type="text"/>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-sm-4 col-md-4 col-lg-4">
+                      <label for="pan" class="control-label">pan</label>
+                        <input name="pan" id="pan" class="form-control" type="text"/>
+                    </div>
+                    <div class="col-sm-4 col-md-4 col-lg-4">
+                      <label for="uid" class="control-label">uid</label>
+                      <input name="uid" id="uid" class="form-control" type="text"/>
+                    </div>
+                    <div class="col-sm-4 col-md-4 col-lg-4">
+                      <label for="email" class="control-label">email</label>
+                        <input name="email" id="email" class="form-control" type="text"/>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-sm-4 col-md-4 col-lg-4">
+                      <label for="landlineno" class="control-label">landlineno</label>
+                        <input name="landlineno" id="landlineno" class="form-control" type="text"/>
+                    </div>
+                    <div class="col-sm-4 col-md-4 col-lg-4">
+                      <label for="company" class="control-label">company</label>
+                      <input name="company" id="company" class="form-control" type="text"/>
+                    </div>
+                    <div class="col-sm-4 col-md-4 col-lg-4">
+                      <label for="companyflg" class="control-label">companyflg</label>
+                        <input name="companyflg" id="companyflg" class="form-control" type="text"/>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-sm-4 col-md-4 col-lg-4">
+                      <label for="gender" class="control-label">gender</label>
+                      <select class="form-control" data-label="Gender" name="gender" id="gender" tabindex="8">
+                        <option>Male</option>
+                        <option>Female</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                      <button type="submit" class="btn btn-danger">Add</button>
+                    </div>
+                  </div>
+                </form>
               </div>
-              <div class="modal fade" id="bill-lookup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                  <form class="form-horizontal" role="form" method="post" action="">
-                    <div class="modal-content">
-                      <div class="modal-header well well-sm text-center">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&#x2715;</button>
-                        <h2 class="modal-title" id="myModalLabel">Bill Lookup Details</h2>
-                      </div>
-                      <div class="modal-body">
-                        <div class="form-group row">
-                          <div class="col-sm-6 col-md-6 col-lg-6">
-                            <label for="fromDate" class="control-label">From Date</label>
-                            <div class="input-group date" data-date-format="dd-mm-yyyy" data-date="01-01-2014">
-                              <input name="fromDate" id="fromDate" class="form-control" type="text" readonly="" />
-                              <span class="input-group-addon add-on">
-                                <span class="glyphicon glyphicon-calendar"></span>
-                              </span>
-                            </div>
-                          </div>
-                          <div class="col-sm-6 col-md-6 col-lg-6">
-                            <label for="autoPopulateDate" class="control-label">To Date</label>
-                            <div class="input-group date" data-date-format="dd-mm-yyyy" data-date="01-01-2014">
-                              <input name="toDate" id="toDate" class="form-control" type="text" readonly="" />
-                              <span class="input-group-addon add-on">
-                                <span class="glyphicon glyphicon-calendar"></span>
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="form-group row">
-                          <div class="col-sm-6 col-md-6 col-lg-6">
-                            <label for="fromTime">fromTime</label>
-                            <input type="text" name="fromTime" class="form-control" id="fromTime">
-                          </div>
-                          <div class="col-sm-6 col-md-6 col-lg-6">
-                            <label for="toTime">toTime</label>
-                            <input type="text" name="toTime" class="form-control" id="toTime">
-                          </div>
-                        </div>
-                        <div class="form-group row">
-                          <div class="col-sm-6 col-md-6 col-lg-6">
-                            <label for="invoiceTitle">invoiceTitle</label>
-                            <input type="text" name="invoiceTitle" class="form-control" id="invoiceTitle">
-                          </div>
-                          <div class="col-sm-6 col-md-6 col-lg-6">
-                            <label for="tenderName">tenderName</label>
-                            <input type="text" name="tenderName" class="form-control" id="tenderName">
-                          </div>
-                        </div>
-                        <div class="form-group row">
-                          <div class="col-sm-6 col-md-6 col-lg-6">
-                            <button type="submit" class="btn btn-danger">Add</button>
-                          </div>
-                        </div>
+              <div id="bill-lookup" style="display:none;">
+                <form class="form-horizontal" role="form" method="post" action="">
+                  <div class="form-group row">
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                      <label for="fromDate" class="control-label">From Date</label>
+                      <div class="input-group date" data-date-format="dd-mm-yyyy" data-date="01-01-2014">
+                        <input name="fromDate" id="fromDate" class="form-control" type="text" readonly="" />
+                        <span class="input-group-addon add-on">
+                          <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
                       </div>
                     </div>
-                  </form>
-                </div>
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                      <label for="autoPopulateDate" class="control-label">To Date</label>
+                      <div class="input-group date" data-date-format="dd-mm-yyyy" data-date="01-01-2014">
+                        <input name="toDate" id="toDate" class="form-control" type="text" readonly="" />
+                        <span class="input-group-addon add-on">
+                          <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                      <label for="fromTime">fromTime</label>
+                      <input type="text" name="fromTime" class="form-control" id="fromTime">
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                      <label for="toTime">toTime</label>
+                      <input type="text" name="toTime" class="form-control" id="toTime">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                      <label for="invoiceTitle">invoiceTitle</label>
+                      <input type="text" name="invoiceTitle" class="form-control" id="invoiceTitle">
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                      <label for="tenderName">tenderName</label>
+                      <input type="text" name="tenderName" class="form-control" id="tenderName">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                      <button type="submit" class="btn btn-danger">Add</button>
+                    </div>
+                  </div>
+                </form>
               </div>
             </div>
             <div class="btn-group">
@@ -494,183 +441,14 @@
                     </form>
                   </li>
                   <li>
-                    <button class="btn btn-danger" data-toggle="modal" data-target="/home/yash/POS/AddCustomer.html">Search</button>
+                    <button class="btn btn-danger" data-toggle="modal" data-dialog-href="/home/yash/POS/SelectItem.html">Search</button>
                   </li>
                   <li>
-                    <button class="btn btn-danger" data-toggle="modal" data-target="#add-customer">
+                    <button class="btn btn-danger" data-toggle="modal" data-dialog-href="file:///home/yash/POS/AddCustomer.html" title="Add Customer">
                       Customer
                     </button>
                   </li>
                 </ul>
-              </div>
-              <div class="modal fade" id="add-customer" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                  <div class="modal-content">
-                    <div class="modal-header well well-sm text-center">
-                      <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&#x2715;</span><span class="sr-only">Close</span></button>
-                      <h4 class="modal-title" id="myModalLabel">Add Customer</h4>
-                    </div>
-                    <div class="modal-body">
-                      <form method="post" action="" class="requireValidation" novalidate="novalidate">
-                        <div class="form-group row">
-                          <div class="col-lg-8 col-md-8 col-sm-8">
-                            <label for="partyId">Customer</label>
-                            <div class="input-group">
-                              <input type="text" id="partyId" name="partyId" value="" data-label="Customer" tabindex="1" placeholder="Search Customer" autofocus="autofocus" class="autoCompleter form-control">
-                              <a class="input-group-addon" tabindex="3" data-toggle-display="#create-customer" data-toggle-effect="slide" data-toggle-attribute="disabled" data-toggle-attribute-target="#partyId" data-toggle-attribute-value="">
-                                <i class="fa fa-plus"></i>
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                        <div id="create-customer" style="display:none;">
-                          <div class="form-group row">
-                            <div class="col-lg-3 col-md-3 col-sm-3">
-                              <label for="customerType">customerType</label>
-                              <input type="text" data-label="customerType" name="customerType" class="form-control" id="customerType" tabindex="2">
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3">
-                              <label for="sal">sal</label>
-                              <input type="text" data-label="sal" name="sal" class="form-control" id="sal" tabindex="3">
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3">
-                              <label for="fname">First Name</label>
-                              <input type="text" data-label="First Name" name="fname" class="form-control" id="fname" tabindex="4">
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3">
-                              <label for="lname">Last Name</label>
-                              <input type="text" data-label="Last Name" name="lname" class="form-control" id="lname" tabindex="5">
-                            </div>
-                          </div>
-                          <div class="form-group row">
-                            <div class="col-lg-3 col-md-3 col-sm-3">
-                              <label for="companyname">Company Name</label>
-                              <input type="text" data-label="Company Name" name="companyname" class="form-control" id="companyname" tabindex="6">
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3">
-                              <label for="companyflg">Company Flg</label>
-                              <input type="text" data-label="Company Flg" name="companyflg" class="form-control" id="companyflg" tabindex="7">
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3">
-                              <label for="gender">Gender</label>
-                              <select class="form-control" data-label="Gender" name="gender" id="gender" tabindex="8">
-                                <option>Male</option>
-                                <option>Female</option>
-                              </select>
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3">
-                              <label for="ageBracket">Age</label>
-                              <input type="text" data-label="Age" name="ageBracket" class="form-control" id="ageBracket" tabindex="9">
-                            </div>
-                          </div>
-                          <div class="form-group row">
-                            <div class="col-lg-3 col-md-3 col-sm-3">
-                              <label for="dndFlg">dndFlg</label>
-                              <input type="text" data-label="dndFlg" name="dndFlg" class="form-control" id="dndFlg" tabindex="10">
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3">
-                              <label for="ageBracket">ageBracket</label>
-                              <input type="text" data-label="ageBracket" name="ageBracket" class="form-control" id="ageBracket" tabindex="11">
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3">
-                              <label for="dob">Date Of Birth</label>
-                              <input type="text" data-label="Date Of Birth" name="dob" class="form-control" id="dob" tabindex="12">
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3">
-                              <label for="maritalStatus">Marital Status</label>
-                              <input type="text" data-label="Marital Status" name="maritalStatus" class="form-control" id="maritalStatus" tabindex="13">
-                            </div>
-                          </div>
-                          <div class="form-group row">
-                            <div class="col-lg-3 col-md-3 col-sm-3">
-                              <label for="anniversary">Anniversary</label>
-                              <input type="text" data-label="Anniversary" name="anniversary" class="form-control" id="anniversary" tabindex="14">
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3">
-                              <label for="occupation">Occupation</label>
-                              <input type="text" data-label="Occupation" name="occupation" class="form-control" id="occupation" tabindex="15">
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3">
-                              <label for="kybcFlg">kybcFlg</label>
-                              <input type="text" data-label="kybcFlg" name="kybcFlg" class="form-control" id="kybcFlg" tabindex="16">
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3">
-                              <label for="uid">UID</label>
-                              <input type="text" data-label="UID" name="uid" class="form-control" id="uid" tabindex="17">
-                            </div>
-                          </div>
-                          <div class="form-group row">
-                            <div class="col-lg-3 col-md-3 col-sm-3">
-                              <label for="pan">PAN</label>
-                              <input type="text" data-label="Age" name="pan" class="form-control" id="pan" tabindex="18">
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3">
-                              <label for="mobileNo">Mobile No</label>
-                              <input type="text" data-label="Mobile No" name="mobileNo" class="form-control" id="mobileNo" tabindex="19">
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3">
-                              <label for="scndrymob">scndrymob</label>
-                              <input type="text" data-label="Age" name="scndrymob" class="form-control" id="scndrymob" tabindex="20">
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3">
-                              <label for="phoneNo">phoneNo</label>
-                              <input type="text" data-label="Age" name="phoneNo" class="form-control" id="phoneNo" tabindex="21">
-                            </div>
-                          </div>
-                          <div class="form-group row">
-                            <div class="col-lg-3 col-md-3 col-sm-3">
-                              <label for="scndryLandline">scndryLandline</label>
-                              <input type="text" data-label="Marital Status" name="scndryLandline" class="form-control" id="scndryLandline" tabindex="22">
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3">
-                              <label for="mailId">mailId</label>
-                              <input type="text" data-label="mailId" name="mailId" class="form-control" id="mailId" tabindex="23">
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3">
-                              <label for="scndryEmail">scndryEmail</label>
-                              <input type="text" data-label="scndryEmail" name="scndryEmail" class="form-control" id="scndryEmail" tabindex="24">
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3">
-                              <label for="addressLine1">addressLine1</label>
-                              <input type="text" data-label="addressLine1" name="addressLine1" class="form-control" id="addressLine1" tabindex="25">
-                            </div>
-                          </div>
-                          <div class="form-group row">
-                            <div class="col-lg-3 col-md-3 col-sm-3">
-                              <label for="addressLine2">addressLine2</label>
-                              <input type="text" data-label="addressLine2" name="addressLine2" class="form-control" id="addressLine2" tabindex="26">
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3">
-                              <label for="city">location</label>
-                              <input type="text" data-label="location" name="location" class="form-control" id="location" tabindex="27">
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3">
-                              <label for="kybcFlg">city</label>
-                              <input type="text" data-label="city" name="city" class="form-control" id="city" tabindex="28">
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3">
-                              <label for="landmark">landmark</label>
-                              <input type="text" data-label="landmark" name="landmark" class="form-control" id="landmark" tabindex="29">
-                            </div>
-                          </div>
-                          <div class="form-group row">
-                            <div class="col-lg-3 col-md-3 col-sm-3">
-                                <label for="pincode">pincode</label>
-                                <input type="text" data-label="pincode" name="pincode" class="form-control" id="pincode" tabindex="30">
-                              </div>
-                          </div>
-                        </div>
-                        <div class="form-group row">
-                          <div class="col-lg-3 col-md-3 col-sm-3">
-                            <button type="submit" class="btn btn-danger relative" tabIndex="8">
-                              Add
-                            </button>
-                          </div>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                </div>
               </div>
               <table class="table table-bordered table-fixed" data-fixed-height="500">
                 <thead>
@@ -1137,6 +915,8 @@
     <script type="text/javascript" src="js/table-fixed-header.js"></script>
     <script type="text/javascript" src="js/jquery.fixedheadertable-3.0.4.js"></script>
     <script type="text/javascript" src="js/bootstrap-datepicker.js"></script>
+    <script type="text/javascript" src="js/bootstrap-modal.js"></script>
+    <script type="text/javascript" src="js/bootstrap-modalmanager.js"></script>
     <script type="text/javascript" src="js/custom_js.js"></script>
   
   </div>
