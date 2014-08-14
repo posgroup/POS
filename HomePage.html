@@ -57,7 +57,192 @@
                 <li class="btn btn-danger btn-block"><a href="#" data-toggle="modal" title="Enter Old Invoice No" data-dialog-href="#sales-against-adv-inv">Sales Against Advance Invoice</a></li>
                 <li class="btn btn-danger btn-block"><a href="#" data-toggle="modal" title="Delivery LookUp" data-dialog-href="#delivery-lookUp">Delivery LookUp</a></li>
               </ul>
-              
+              <div id="delivery-lookUp" style="display:none;">
+                <form method="post" action="" class="requireValidation" novalidate="novalidate">
+	            <div class="form-group row">
+	              <div class="col-lg-3 col-md-3 col-sm-3">
+	                <label for="salePersonCode">salePersonCode</label>
+	                <input type="text" data-label="salePersonCode" name="salePersonCode" class="form-control" id="salePersonCode" tabindex="2">
+	              </div>
+	              <div class="col-lg-3 col-md-3 col-sm-3">
+	                <label for="itemName">itemName</label>
+	                <input type="text" data-label="itemName" name="itemName" class="form-control" id="itemName" tabindex="3">
+	              </div>
+	              <div class="col-lg-3 col-md-3 col-sm-3">
+	                <label for="srNo">srNo</label>
+	                <input type="text" data-label="First Name" name="srNo" class="form-control" id="srNo" tabindex="4">
+	              </div>
+	              <div class="col-lg-3 col-md-3 col-sm-3">
+	                <label for="firstName">firstName</label>
+	                <input type="text" data-label="firstName" name="firstName" class="form-control" id="firstName" tabindex="5">
+	              </div>
+	            </div>
+	            <div class="form-group row">
+	              <div class="col-lg-3 col-md-3 col-sm-3">
+	                <label for="lastName">lastName</label>
+	                <input type="text" data-label="lastName" name="lastName" class="form-control" id="lastName" tabindex="6">
+	              </div>
+	              <div class="col-lg-3 col-md-3 col-sm-3">
+	                <label for="deliveryType">deliveryType</label>
+	                <input type="text" data-label="deliveryType" name="deliveryType" class="form-control" id="deliveryType" tabindex="7">
+	              </div>
+	              <div class="col-lg-3 col-md-3 col-sm-3">
+	                <label for="routes">routes</label>
+	                <select class="form-control" data-label="routes" name="routes" id="routes" tabindex="8">
+	                  <option>Male</option>
+	                  <option>Female</option>
+	                </select>
+	              </div>
+	              <div class="col-lg-3 col-md-3 col-sm-3">
+	                <label for="locationEntryTime">locationEntryTime</label>
+	                <input type="text" data-label="locationEntryTime" name="locationEntryTime" class="form-control" id="locationEntryTime" tabindex="9">
+	              </div>
+	            </div>
+	            <div class="form-group row">
+	              <div class="col-lg-3 col-md-3 col-sm-3">
+	                <label for="deliveryDate">deliveryDate</label>
+	                <input type="text" data-label="deliveryDate" name="deliveryDate" class="form-control" id="deliveryDate" tabindex="10">
+	              </div>
+	              <div class="col-lg-3 col-md-3 col-sm-3">
+	                <label for="ageBracket">ageBracket</label>
+	                <input type="text" data-label="ageBracket" name="ageBracket" class="form-control" id="ageBracket" tabindex="11">
+	              </div>
+	              <div class="col-lg-3 col-md-3 col-sm-3">
+	                <label for="dob">Date Of Birth</label>
+	                <input type="text" data-label="Date Of Birth" name="dob" class="form-control" id="dob" tabindex="12">
+	              </div>
+	              <div class="col-lg-3 col-md-3 col-sm-3">
+	                <label for="address1">address1</label>
+	                <input type="text" data-label="address1" name="address1" class="form-control" id="address1" tabindex="13">
+	              </div>
+	            </div>
+	            <div class="form-group row">
+	              <div class="col-lg-3 col-md-3 col-sm-3">
+	                <label for="address2">address2</label>
+	                <input type="text" data-label="address2" name="address2" class="form-control" id="address2" tabindex="14">
+	              </div>
+	              <div class="col-lg-3 col-md-3 col-sm-3">
+	                <label for="landmark">landmark</label>
+	                <input type="text" data-label="landmark" name="landmark" class="form-control" id="landmark" tabindex="15">
+	              </div>
+	              <div class="col-lg-3 col-md-3 col-sm-3">
+	                <label for="location">location</label>
+	                <input type="text" data-label="location" name="location" class="form-control" id="location" tabindex="16">
+	              </div>
+	              <div class="col-lg-3 col-md-3 col-sm-3">
+	                <label for="city">city</label>
+	                <input type="text" data-label="city" name="city" class="form-control" id="city" tabindex="17">
+	              </div>
+	            </div>
+	            <div class="form-group row">
+	              <div class="col-lg-3 col-md-3 col-sm-3">
+	                <label for="pinCode">pinCode</label>
+	                <input type="text" data-label="pinCode" name="pinCode" class="form-control" id="pinCode" tabindex="18">
+	              </div>
+	              <div class="col-lg-3 col-md-3 col-sm-3">
+	                <label for="priorityInstruction">priorityInstruction</label>
+	                <input type="text" data-label="priorityInstruction" name="priorityInstruction" class="form-control" id="priorityInstruction" tabindex="19">
+	              </div>
+	              <div class="col-lg-3 col-md-3 col-sm-3">
+	                <label for="deliveryInstruction">deliveryInstruction</label>
+	                <input type="text" data-label="deliveryInstruction" name="deliveryInstruction" class="form-control" id="deliveryInstruction" tabindex="20">
+	              </div>
+	              <div class="col-lg-3 col-md-3 col-sm-3">
+	                <label for="extectedInstallationDate">extectedInstallationDate</label>
+	                <input type="text" data-label="extectedInstallationDate" name="extectedInstallationDate" class="form-control" id="extectedInstallationDate" tabindex="21">
+	              </div>
+	            </div>
+	            <div class="form-group row">
+	              <div class="col-lg-3 col-md-3 col-sm-3">
+	                <label for="expectedDemoDate">expectedDemoDate</label>
+	                <input type="text" data-label="expectedDemoDate" name="expectedDemoDate" class="form-control" id="expectedDemoDate" tabindex="22">
+	              </div>
+	              <div class="col-lg-3 col-md-3 col-sm-3">
+	                <label for="deliveryTimeFrom">deliveryTimeFrom</label>
+	                <input type="text" data-label="deliveryTimeFrom" name="deliveryTimeFrom" class="form-control" id="deliveryTimeFrom" tabindex="23">
+	              </div>
+	              <div class="col-lg-3 col-md-3 col-sm-3">
+	                <label for="deliveryTimeTo">deliveryTimeTo</label>
+	                <input type="text" data-label="deliveryTimeTo" name="deliveryTimeTo" class="form-control" id="deliveryTimeTo" tabindex="24">
+	              </div>
+	              <div class="col-lg-3 col-md-3 col-sm-3">
+	                <label for="installationtimeFrom">installationtimeFrom</label>
+	                <input type="text" data-label="installationtimeFrom" name="installationtimeFrom" class="form-control" id="installationtimeFrom" tabindex="25">
+	              </div>
+	            </div>
+	            <div class="form-group row">
+	              <div class="col-lg-3 col-md-3 col-sm-3">
+	                <label for="installationtimeTo">installationtimeTo</label>
+	                <input type="text" data-label="installationtimeTo" name="installationtimeTo" class="form-control" id="installationtimeTo" tabindex="26">
+	              </div>
+	              <div class="col-lg-3 col-md-3 col-sm-3">
+	                <label for="demotimeFrom">demotimeFrom</label>
+	                <input type="text" data-label="demotimeFrom" name="demotimeFrom" class="form-control" id="demotimeFrom" tabindex="27">
+	              </div>
+	              <div class="col-lg-3 col-md-3 col-sm-3">
+	                <label for="demoTimeTo">demoTimeTo</label>
+	                <input type="text" data-label="demoTimeTo" name="demoTimeTo" class="form-control" id="demoTimeTo" tabindex="28">
+	              </div>
+	              <div class="col-lg-3 col-md-3 col-sm-3">
+	                <label for="installationFlag">installationFlag</label>
+	                <input type="text" data-label="installationFlag" name="installationFlag" class="form-control" id="installationFlag" tabindex="29">
+	              </div>
+	            </div>
+	            <div class="form-group row">
+	              <div class="col-lg-3 col-md-3 col-sm-3">
+	                <label for="demoFlag">demoFlag</label>
+	                <input type="text" data-label="demoFlag" name="demoFlag" class="form-control" id="demoFlag" tabindex="30">
+	              </div>
+	              <div class="col-lg-3 col-md-3 col-sm-3">
+                    <label for="priorityFlag">priorityFlag</label>
+                    <input type="text" data-label="priorityFlag" name="priorityFlag" class="form-control" id="priorityFlag" tabindex="30">
+                  </div>
+                  <div class="col-lg-3 col-md-3 col-sm-3">
+                    <label for="billAddress1">billAddress1</label>
+                    <input type="text" data-label="billAddress1" name="billAddress1" class="form-control" id="demoFlag" tabindex="30">
+                  </div>
+                  <div class="col-lg-3 col-md-3 col-sm-3">
+                    <label for="billAddress2">billAddress2</label>
+                    <input type="text" data-label="billAddress2" name="billAddress2" class="form-control" id="billAddress2" tabindex="30">
+                  </div>
+	             </div>
+	             <div class="form-group row">
+                  <div class="col-lg-3 col-md-3 col-sm-3">
+                    <label for="billLocation">billLocation</label>
+                    <input type="text" data-label="billLocation" name="billLocation" class="form-control" id="billLocation" tabindex="30">
+                  </div>
+                  <div class="col-lg-3 col-md-3 col-sm-3">
+                    <label for="billCity">billCity</label>
+                    <input type="text" data-label="billCity" name="billCity" class="form-control" id="billCity" tabindex="30">
+                  </div>
+                  <div class="col-lg-3 col-md-3 col-sm-3">
+                    <label for="billPincode">billPincode</label>
+                    <input type="text" data-label="billPincode" name="billPincode" class="form-control" id="demoFlag" tabindex="30">
+                  </div>
+                  <div class="col-lg-3 col-md-3 col-sm-3">
+                    <label for="pickupRemark">pickupRemark</label>
+                    <input type="text" data-label="pickupRemark" name="pickupRemark" class="form-control" id="pickupRemark" tabindex="30">
+                  </div>
+                 </div>
+                 <div class="form-group row">
+                  <div class="col-lg-3 col-md-3 col-sm-3">
+                    <label for="pickupFlag">pickupFlag</label>
+                    <input type="text" data-label="pickupFlag" name="pickupFlag" class="form-control" id="pickupFlag" tabindex="30">
+                  </div>
+                  <div class="col-lg-3 col-md-3 col-sm-3">
+                    <label for="deliveryTypeEnabled">deliveryTypeEnabled</label>
+                    <input type="text" data-label="deliveryTypeEnabled" name="deliveryTypeEnabled" class="form-control" id="deliveryTypeEnabled" tabindex="30">
+                  </div>
+                 </div>
+		         <div class="form-group row">
+		           <div class="col-lg-3 col-md-3 col-sm-3">
+		             <button type="submit" class="btn btn-danger relative" tabIndex="8">
+		               Add
+		             </button>
+		           </div>
+		         </div>
+        </form>
+              </div>
               <div id="day-begin" style="display:none">
                 <form class="form-horizontal" role="form" method="post" action="">
                   <div class="form-group">
